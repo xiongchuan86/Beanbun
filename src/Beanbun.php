@@ -233,7 +233,6 @@ class Beanbun
         }
 
         $this->startWorkerHooks[] = function ($beanbun) {
-            $beanbun->queue()->maxQueueSize = $beanbun->max;
             $beanbun->timer_id = Beanbun::timer($beanbun->interval, [$beanbun, 'crawler']);
         };
 

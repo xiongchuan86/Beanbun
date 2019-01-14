@@ -23,6 +23,7 @@ class RedisQueue implements QueueInterface
         $this->name = $config['name'];
         $this->key = $config['name'] . 'Queue';
         $this->queuedKey = $config['name'] . 'Queued';
+        $this->maxQueueSize = isset($config['max']) ? $config['max'] : 10000;
         $this->bfSize = isset($config['size']) ? $config['size'] : 400000;
         $this->bfHashCount = isset($config['hash_count']) ? $config['hash_count'] : 14;
         if (isset($config['bloomFilter']) && !$config['bloomFilter']) {

@@ -50,6 +50,7 @@ class MemoryQueue implements QueueInterface
         $this->name = $config['name'];
         $this->key = $config['name'] . 'Queue';
         $this->queuedKey = $config['name'] . 'Queued';
+        $this->maxQueueSize = isset($config['max']) ? $config['max'] : 10000;
         if (isset($config['algorithm'])) {
             $this->algorithm = $config['algorithm'] != 'breadth' ? 'depth' : 'breadth';
         }
